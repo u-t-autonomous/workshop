@@ -1,0 +1,10 @@
+<launch>
+
+  <node name="recognizer" pkg="pocketsphinx" type="recognizer.py" output="screen">
+    <param name="lm" value="/home/sahabi/catkin_ws/src/pocketsphinx/test/move.lm"/>
+    <param name="dict" value="/home/sahabi/catkin_ws/src/pocketsphinx/test/move.dic"/>
+    <param name="fsg" value="/home/sahabi/catkin_ws/src/pocketsphinx/test/move.fsg"/>
+    <param name="activation_key" value="amase"/>
+  </node>
+
+</launch>

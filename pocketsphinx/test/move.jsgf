@@ -1,0 +1,17 @@
+#JSGF V1.0;
+
+grammar navigation;
+
+public <navCommand> =  [<initialize>] ( <command> <direction> | <stop> | <faster> | <slower>) ;
+	
+<initialize> = start | other | words | here | amase;
+
+<command> = move | go | turn;
+
+<direction> = forward | backward | left | right;
+
+<stop> = stop | halt | abort;
+
+<faster> = faster | speed up;
+
+<slower> = slower | slow down;
