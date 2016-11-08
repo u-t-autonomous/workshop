@@ -1,8 +1,5 @@
-#!/usr/bin/env python
 from environment import Simulation
-from std_msgs.msg import String
 import pygame
-import rospy
 
 # This will be your subscriber node.
 # You will need to create a callback function.
@@ -10,17 +7,25 @@ import rospy
 # command can only be one of the following "south", "north", "west", "east".
 # Remember to initiate a ROS node and subscribe to the topic /cmd.
 
-def callback(msg):
-	done, state = sim.move([msg.data])
-
 def main():
-    rospy.init_node('subs', anonymous=True)
-    pub = rospy.Subscriber('cmd', String, callback)
+
+    sim = Simulation("config.txt")
+
+    #sim.load_matrix_file("matrix.txt") --only include if a matrix file is used
+
+    # sim.load_slip_file("slip.txt") #turns slipping to 'on'
+
+    state = sim.get_state() #grab state
+
     done = False
+
     while not done:
-    	pass
+
+        done, state = sim.move(["south"]) #main call
+
+        # print(sim.get_history(2)["agents"]) #get the history from 2 time steps back
+        
+    #sim.generate_agent_matrix("agent_matrix.txt")
 
 
-if __name__ == '__main__':
-	sim = Simulation("/home/sahabi/catkin_ws/src/wiald/src/config.txt") # absolute path is better
-	main()
+main()
