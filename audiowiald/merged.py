@@ -1,6 +1,10 @@
 import pyaudio
 import wave
- 
+import wave
+import houndify
+import sys
+import time
+
 FORMAT = pyaudio.paInt16
 CHANNELS = 1
 RATE = 16000
@@ -33,13 +37,10 @@ waveFile.setsampwidth(audio.get_sample_size(FORMAT))
 waveFile.setframerate(RATE)
 waveFile.writeframes(b''.join(frames))
 waveFile.close()
-
+time.sleep(1.032) 
 
 #!/usr/bin/env python
-import wave
-import houndify
-import sys
-import time
+
 
 # The code below will demonstrate how to use streaming audio through Hound
 #
