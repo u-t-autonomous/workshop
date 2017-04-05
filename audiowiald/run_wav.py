@@ -25,11 +25,11 @@ if __name__ == '__main__':
   #
   class MyListener(houndify.HoundListener):
     def onPartialTranscript(self, transcript):
-      print "Partial transcript: " + transcript
+      pass# "Partial transcript: " + transcript
     def onFinalResponse(self, response):
-      print "Final response: " + str(response)
+      return "Final response: " + str(response['AllResults'][0]['WrittenResponse'])
     def onTranslatedResponse(self, response):
-      print "Translated response: " + response
+      pass# "Translated response: " + response
     def onError(self, err):
       print "ERROR"
 
