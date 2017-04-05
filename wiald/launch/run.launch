@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+<group ns="wiald">
+  <node name="subs" pkg="wiald" type="subscriber_tutorial.py" output="screen">
+  </node>
+  <node name="audio_talker" pkg="wiald" type="audio_publisher_tutorial.py" output="screen">
+  </node>
+
+
+
+</group>
+</launch>
